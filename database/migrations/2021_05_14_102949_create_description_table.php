@@ -15,7 +15,7 @@ class CreateDescriptionTable extends Migration
     {
         Schema::create('description', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
+            $table->text('description');
             $table->string('photo');
             $table->bigInteger('profile_id')->unsigned();
             $table->timestamps();
