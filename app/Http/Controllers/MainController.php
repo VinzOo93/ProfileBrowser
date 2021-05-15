@@ -19,10 +19,8 @@ class MainController extends Controller
 
         $profiles = Profiles::all();
 
-        dd($profiles);
-
             return view('home.home', [
-             'profile'  => $profiles
+             'profiles'  => $profiles
             ]);
     }
 }

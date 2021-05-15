@@ -16,6 +16,8 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description');
+            $table->string('photo');
             $table->timestamps();
         });
     }

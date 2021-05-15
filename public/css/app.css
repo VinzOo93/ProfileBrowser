@@ -4,9 +4,56 @@
 
 body {
     font-family: 'Nunito', sans-serif;
+    font-size: 20px;
 }
+
+
 
 h1 {
     display: flex;
     justify-content: center;
 }
+
+p {
+    width: 60%;
+}
+.profile-img {
+    width: 125px;
+    height: auto;
+}
+
+.tab-profile {
+    overflow: hidden;
+    display: grid;
+    margin-left: 15%;
+}
+
+.tab-profile button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    width: 130px;
+    transition: 0.3s;
+}
+
+.tab-profile button:hover {
+    background-color: #ddd;
+}
+
+.tab-profile button.active {
+    background-color: #ccc;
+}
+
+.content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    position: absolute;
+    left: 25%;
+    top: 15%;
+}
+
