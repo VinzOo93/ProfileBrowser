@@ -13,7 +13,7 @@
                 buttons[i].classList.remove('active');
             }
             // select effect on button + show the content of the tab
-            content[button.id -1].style.display = "table";
+            e.currentTarget.nextElementSibling.style.display = "table";
             e.currentTarget.classList.add('active')
 
         });
