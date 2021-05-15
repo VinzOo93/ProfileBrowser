@@ -15,8 +15,6 @@
             // select effect on button + show the content of the tab
             e.currentTarget.nextElementSibling.style.display = "table";
             e.currentTarget.classList.add('active')
-
         });
-
     });
 
