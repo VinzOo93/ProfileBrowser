@@ -1,9 +1,17 @@
 @includeFirst(['layouts.app'])
 
-
 <h1>Profile Browser</h1>
 
 <div class="tab-profile">
+    <div class="navbar navigation">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Manage Profiles</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     @foreach($profiles as $profile)
         <div class="col">
             <button id="{{$profile->id}}" class="button-raw">{{$profile->name}}  </button>
@@ -14,6 +22,5 @@
                     <p><img class="profile-img" src="{{asset('images/'.$profile->photo)}}" alt="img-{{$profile->name}}">{{$profile->description}}</p></div>
             </div>
         </div>
-
     @endforeach
 </div>
