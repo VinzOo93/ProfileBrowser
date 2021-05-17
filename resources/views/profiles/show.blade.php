@@ -1,26 +1,13 @@
 @includeFirst(['layouts.app'])
-
-<h1>Profiles Manager</h1>
-<div class="table-crud">
+<div class="table-crud-2">
     <div class="navbar navigation">
         <nav>
             <ul>
                 <li>
-                    <a class="home" href="{{url('/')}}">Home</a>
-                </li>
-                <li>
-                    <a class="create" href="{{url('profiles/create')}}">New Profile</a>
+                    <a href="{{url('profiles')}}">Index Profile</a>
                 </li>
             </ul>
         </nav>
-    </div>
-    <div>
-        @if( session()->has('success'))
-            <div class="success alert-danger">
-                <h4>Your action has been registered correctly 😀 !! </h4>
-                <p>{{session()->get('success')}}</p>
-            </div>
-        @endif
     </div>
     <table class="table">
         <thead>
@@ -34,22 +21,24 @@
             <th>action</th>
         </tr>
         </thead>
-        <tbody class="t-body-index">
-        @foreach($profiles as $profile)
+        <tbody class="tbody-show">
             <tr>
                 <td class="id">{{ $profile->id }}</td>
                 <td class="name">{{ $profile->name }}</td>
                 <td class="description">{{ $profile->description }}</td>
-                <td class="photo">{{ $profile->photo }}</td>
+                <td class="photo">{{ $profile->photo }}<img class="profile-img" src="{{asset('images/'.$profile->photo)}}" alt="img-{{$profile->name}}"></td>
                 <td class="created_at">{{ $profile->created_at }}</td>
                 <td class="updated_at">{{ $profile->updated_at }}</td>
                 <td>
-                    <a href="{{url('/profiles/'.$profile->id.'/show')}}">show</a>
+                    <a href="">update</a>
+                    <form method="POST" action="{{url('profiles/'.$profile->id)}}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete">Delete</button>
+                    </form>
                 </td>
             </tr>
-        @endforeach
         </tbody>
-
     </table>
 
 </div>

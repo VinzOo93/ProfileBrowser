@@ -1,4 +1,5 @@
 @includeFirst(['layouts.app'])
+<h1> Insert a new profile</h1>
 <div class="tab-form">
     <div class="navbar navigation">
         <nav>

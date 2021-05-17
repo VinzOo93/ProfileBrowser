@@ -68,7 +68,7 @@
     .content {
         position: absolute;
         left: 25%;
-        top: 17%;
+        top: 20%;
     }
 }
 
@@ -163,11 +163,17 @@ list-style-type: none;
     margin-left: 15%;
 }
 
-tbody td {
+.t-body-index td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 200px;
+}
+
+.t-body-show td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 td a:hover {
@@ -175,8 +181,11 @@ td a:hover {
 }
 
 .create {
-    margin-top: 1% !important;
-    padding: 0.5% 39% !important;
+    margin-top: 10px !important;
+    padding: 0.5%  !important;
+}
+.home {
+    padding: 0.5%  !important;
 }
 
 .create:hover {
@@ -188,6 +197,14 @@ td a:hover {
     margin-right: 15%;
     padding: 20px;
     background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+.success {
+    margin-right: 15%;
+    padding: 20px;
+    background-color: #36f439; /* green */
     color: white;
     margin-bottom: 15px;
 }
@@ -229,7 +246,17 @@ input {
     width: 200px;
 }
 
+.delete {
+    font-size: 20px;
+    padding: 1% ;
+    background-color: red;
+    color: #f7fafc;
+    border-radius: 8px;
+    margin-top: 5%;
+}
 
-
+.table-crud-2 .description {
+    max-width: 900px;
+}
 
 

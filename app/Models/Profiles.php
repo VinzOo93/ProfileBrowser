@@ -20,4 +20,5 @@ class Profiles extends Model
     protected $fillable = ['name', 'description', 'photo'];
 
 
+
 }

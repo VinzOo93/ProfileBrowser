@@ -17,7 +17,13 @@ Route::get('/', [\App\Http\Controllers\MainController::class, 'home']);
 
 Route::get('/profiles', [\App\Http\Controllers\ProfilesController::class, 'index']);
 
+Route::get('/profiles/{profile}/show', [\App\Http\Controllers\ProfilesController::class, 'show']);
+
 Route::get('profiles/create', [\App\Http\Controllers\ProfilesController::class, 'create']);
 
-
 Route::post('/create', [\App\Http\Controllers\ProfilesController::class, 'store']);
+
+Route::delete('/profiles/{profile}',[\App\Http\Controllers\ProfilesController::class, 'destroy'])->name('delete');
+
+
+

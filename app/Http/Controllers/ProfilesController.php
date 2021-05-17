@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Profiles;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\DB;
 
 class ProfilesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
+     * @return Application|Factory|View|Response
      */
     public function index()
     {
@@ -28,7 +31,7 @@ class ProfilesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
@@ -39,7 +42,7 @@ class ProfilesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Application|RedirectResponse|Response|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Response|Redirector
      */
     public function store(Request $request)
     {
@@ -70,18 +73,20 @@ class ProfilesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profiles  $profiles
-     * @return Response
+     * @param Profiles $profile
+     * @return Application|Factory|View
      */
-    public function show(Profiles $profiles)
+    public function show(Profiles $profile)
     {
-        //
+        return view('profiles.show', [
+            'profile'  => $profile
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profiles  $profiles
+     * @param Profiles $profiles
      * @return Response
      */
     public function edit(Profiles $profiles)
@@ -93,7 +98,7 @@ class ProfilesController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Models\Profiles  $profiles
+     * @param Profiles $profiles
      * @return Response
      */
     public function update(Request $request, Profiles $profiles)
@@ -103,12 +108,16 @@ class ProfilesController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Profiles  $profiles
-     * @return Response
+     * @param Profiles $profile
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(Profiles $profiles)
+    public function destroy(Profiles $profile)
     {
-        //
+        $profile->delete();
+
+        return redirect('/profiles')->with('success', 'Profile correctly deleted !!');
+
     }
+
+
 }
