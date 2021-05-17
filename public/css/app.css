@@ -139,9 +139,9 @@ list-style-type: none;
     font-size: 0.6em;
     font-weight: bolder;
     z-index: 3;
-    padding: 1% 40%;    width: 20% !important;
+    padding: 1% 40%;
+    width: 20% !important;
     min-width: 60px;
-
 }
 
 .navbar a:hover {
@@ -161,4 +161,25 @@ list-style-type: none;
 
 .table-crud {
     margin-left: 15%;
+}
+
+tbody td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+td a:hover {
+    color: red;
+}
+
+.create {
+    margin-top: 1% !important;
+    padding: 0.5% 39% !important;
+}
+
+.create:hover {
+    background-color: brown !important;
+
 }
