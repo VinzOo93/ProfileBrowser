@@ -21,9 +21,15 @@ Route::get('/profiles/{profile}/show', [\App\Http\Controllers\ProfilesController
 
 Route::get('profiles/create', [\App\Http\Controllers\ProfilesController::class, 'create']);
 
+Route::get('profiles/{profile}/update', [\App\Http\Controllers\ProfilesController::class, 'edit']);
+
+Route::put('profiles/{profile}', [\App\Http\Controllers\ProfilesController::class, 'update']);
+
 Route::post('/create', [\App\Http\Controllers\ProfilesController::class, 'store']);
 
 Route::delete('/profiles/{profile}',[\App\Http\Controllers\ProfilesController::class, 'destroy'])->name('delete');
+
+
 
 
 

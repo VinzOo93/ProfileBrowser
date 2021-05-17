@@ -30,7 +30,7 @@
                 <td class="created_at">{{ $profile->created_at }}</td>
                 <td class="updated_at">{{ $profile->updated_at }}</td>
                 <td>
-                    <a href="">update</a>
+                    <a href="{{url('profiles/'.$profile->id.'/update')}}">update</a>
                     <form method="POST" action="{{url('profiles/'.$profile->id)}}">
                         @csrf
                         @method('DELETE')

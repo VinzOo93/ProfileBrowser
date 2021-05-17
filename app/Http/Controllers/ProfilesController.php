@@ -86,24 +86,40 @@ class ProfilesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Profiles $profiles
-     * @return Response
+     * @param Profiles $profile
+     * @return Application|Factory|View
      */
-    public function edit(Profiles $profiles)
+    public function edit(Profiles $profile)
     {
-        //
+
+
+        return view('profiles.edit', [
+            'profile'  => $profile
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Profiles $profiles
-     * @return Response
+     * @param Profiles $profile
+     * @return Application|RedirectResponse|Redirector
      */
-    public function update(Request $request, Profiles $profiles)
+    public function update(Request $request, Profiles $profile)
     {
-        //
+        $request->validate([
+            'name' => 'max:255',
+            'description' => '',
+            'photo' => '',
+        ]);
+
+        $profile->update([
+            'name' => request('name'),
+            'description' => request('description'),
+            'photo' => request('photo'),
+            'updated_at' => '',
+        ]);
+        return redirect('/profiles')->with('success', 'Profile correctly updated !!');
     }
 
     /**
