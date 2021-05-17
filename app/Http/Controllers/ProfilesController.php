@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Profiles;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -26,22 +28,43 @@ class ProfilesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function create()
     {
-        //
+        return view('profiles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        $profile = new Profiles();
+
+
+        $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'photo' => 'required',
+        ]);
+
+      $profile ->create([
+          'name' => request('name'),
+          'description' => request('description'),
+          'photo' => request('photo'),
+          'created_at' => new \DateTime('now'),
+          'updated_at' => '',
+
+      ]);
+
+
+
+        return redirect('/profiles')->with('success', 'New profile registred correctly !! ');
+
     }
 
     /**
@@ -69,7 +92,7 @@ class ProfilesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\Models\Profiles  $profiles
      * @return Response
      */

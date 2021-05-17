@@ -9,7 +9,7 @@
                     <a href="{{url('/')}}">Home</a>
                 </li>
                 <li>
-                    <a class="create" href="">New Profile</a>
+                    <a class="create" href="{{url('profiles/create')}}">New Profile</a>
                 </li>
             </ul>
         </nav>
