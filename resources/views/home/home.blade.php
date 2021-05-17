@@ -7,7 +7,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="">Manage Profiles</a>
+                    <a href="{{url('profiles')}}">Manage Profiles</a>
                 </li>
             </ul>
         </nav>

@@ -159,3 +159,6 @@ list-style-type: none;
     transition: 0.3s;
 }
 
+.table-crud {
+    margin-left: 15%;
+}
