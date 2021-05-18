@@ -10,7 +10,7 @@
             </ul>
         </nav>
     </div>
-    <form method="POST" action="{{asset('profiles/'.$profile->id)}}">
+    <form method="POST" action="{{asset('profiles/'.$profile->id)}}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="line-form">
@@ -23,7 +23,7 @@
         </div>
         <div class="line-form">
             <label for="photo">photo</label>
-            <input  class="photo" id="photo" name="photo" type="text" value="{{$profile->photo}}">
+            <input  class="photo" id="photo" name="photo" type="file" >
         </div>
         <button class="register">Register</button>
     </form>

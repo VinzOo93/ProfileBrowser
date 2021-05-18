@@ -17,7 +17,21 @@ class Profiles extends Model
 {
     use HasFactory;
 
+
     protected $fillable = ['name', 'description', 'photo'];
+
+    /**
+     * Get the photo name string
+     *
+     * @param $photo
+     * @return string
+     */
+    public function getPhoto($photo): string
+    {
+
+
+        return ucfirst($photo);
+    }
 
 
 

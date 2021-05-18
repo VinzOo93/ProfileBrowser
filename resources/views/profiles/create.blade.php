@@ -17,7 +17,7 @@
         </div>
         @endif
     </div>
-    <form method="POST" action="{{asset('create')}}">
+    <form method="POST" action="{{asset('create')}}" enctype="multipart/form-data">
         @method('POST')
         @csrf
         <div class="line-form">
@@ -30,7 +30,7 @@
         </div>
         <div class="line-form">
             <label for="photo">photo</label>
-            <input  class="photo" id="photo" name="photo" type="text">
+            <input  class="photo" id="" name="photo" type="file">
         </div>
         <button class="register">Register</button>
     </form>

@@ -10,7 +10,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\DB;
 
 class ProfilesController extends Controller
 {
@@ -22,6 +21,7 @@ class ProfilesController extends Controller
     public function index()
     {
         $profiles = Profiles::all();
+
 
         return view('profiles.profile_index', [
             'profiles'  => $profiles
@@ -42,23 +42,47 @@ class ProfilesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Application|RedirectResponse|Response|Redirector
+     * @return string
      */
-    public function store(Request $request)
+    public function store(Request $request): string
     {
         $profile = new Profiles();
-
 
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
-            'photo' => 'required',
+            'photo' => 'nullable|max: 1999',
         ]);
+        $image = $request->file('photo');
 
-      $profile ->create([
+        // upload image
+        if ($image != null) {
+
+            $filenameWithExt = $image->getClientOriginalName();
+
+            // get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $image->getClientOriginalExtension();
+
+
+            // String To store
+            $fileNameToStore = $filename.'.'.$extension;
+
+
+            // Upload Image
+           $image->move(public_path('images'), $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+
+        $profile ->create([
           'name' => request('name'),
           'description' => request('description'),
-          'photo' => request('photo'),
+          'photo' => $fileNameToStore,
           'created_at' => new \DateTime('now'),
           'updated_at' => '',
 
@@ -108,16 +132,48 @@ class ProfilesController extends Controller
     public function update(Request $request, Profiles $profile)
     {
         $request->validate([
-            'name' => 'max:255',
-            'description' => '',
-            'photo' => '',
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'photo' => 'nullable|max: 1999',
         ]);
+        $image = $request->file('photo');
 
-        $profile->update([
+        // upload image
+        if ($image != null) {
+
+            $filenameWithExt = $image->getClientOriginalName();
+
+            // get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $image->getClientOriginalExtension();
+
+
+            // String To store
+            $fileNameToStore = $filename.'.'.$extension;
+
+
+            // Upload Image
+            $image->move(public_path('images'), $fileNameToStore);
+
+        } else {
+            // get back the string of a photo through the de DB
+            $tab = $profile->find($profile,'photo');
+            //convert the table object to string
+            $string = $profile->getPhoto($tab[0]);
+            // select only the name of the image in the string
+            $fileNameToStore = substr($string, 10, -2);
+        }
+
+
+        $profile ->update([
             'name' => request('name'),
             'description' => request('description'),
-            'photo' => request('photo'),
+            'photo' => $fileNameToStore,
+            'created_at' => new \DateTime('now'),
             'updated_at' => '',
+
         ]);
         return redirect('/profiles')->with('success', 'Profile correctly updated !!');
     }
