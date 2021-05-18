@@ -7,56 +7,50 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## PROFILE_BROWSER
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## INSTALLATION
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Si vous souhaitez utiliser votre serveur Local 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Se rendre dans le dossier à l'intérieur du repertoire de votre server local et ouvrir le terminal :
 
-## Learning Laravel
+cd /wamp64/www lancer la commande : git clone https://github.com/VinzOo93/ProfileBrowser.git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+pour installer les dépendances de Laravel se rendre dans : cd ProfileBrowser composer install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Pour créer la base de données, vous devez d'abord configurer correctement le fichier .env, puis exécuter : et modifier cette variable avec le user, mot de passe et non de base de donnée MySQL.
 
-## Laravel Sponsors
+4 vous n'avez plus qu'à insérer le script SQL dans votre base de données => profilebrowser_profiles.sql
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+5 L'appli fonctionne :) 
 
-### Premium Partners
+## Si vous souhaitez utiliser docker SAIL
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Se rendre dans le dossier de vos projet et ouvrir le terminal :
 
-## Contributing
+1 lancer la commande : git clone https://github.com/VinzOo93/ProfileBrowser.git
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+pour installer les dépendances de Laravel se rendre dans : cd ProfileBrowser composer install
 
-## Code of Conduct
+2 alias sail='bash vendor/bin/sail' (sur mac OS)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3 Sail up 
 
-## Security Vulnerabilities
+4 vous n'avez plus qu'à insérer le script SQL dans votre base de données => profilebrowser_profiles.sql
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5 L'appli fonctionne :) 
 
-## License
+## FONCTIONALITE 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+toutes les fonctionalités CRUD fonctionnent avec en + la grestion de l'upload d'images pour le Create & UPDATE 
+
+IHM totalement reponsive.
+
+Merci de me reporter votre avis pour d'éventuelles améliorations. 
+
+
+
+
+
+
